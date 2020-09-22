@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer details</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button1 {background-color: #4CAF50;
+border-radius: 12px;}
+.button2 {background-color: #008CBA;
+border-radius: 12px;}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+    </style>
+
+</head>
+
+
+<body>
+<table >
+    <tr>
+        <th>user-id</th>
+        <th>email</th>
+        <th>first-name</th>
+        <th>last-name</th>
+        <th>phone</th>
+        <th>account-id</th>
+        <th>iban</th>
+        <th>balance</th>
+
+    </tr>
+    <tr>
+        <td th:text="${user.id}">Default</td>
+        <td th:text="${user.email}">Default</td>
+        <td th:text="${user.customer.firstName}">Default</td>
+        <td th:text="${user.customer.lastName}">Default</td>
+        <td th:text="${user.customer.phone}">Default</td>
+        <td th:text="${user.customer.account.accountId}">Default</td>
+        <td th:text="${user.customer.account.iban}">Default</td>
+        <td th:text="${user.customer.account.balance}">Default</td>
+
+
+    </tr>
+
+</table>
+
+
+
+
+<a href="/user" class="button button1" style="vertical-align:middle" ><span>Click to go to main page</span></a>
+
+
+</body>
+</html>

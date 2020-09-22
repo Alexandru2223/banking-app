@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Employee main page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+        .button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        .button1 {
+            background-color: #4caf50;
+            border-radius: 12px;
+        }
+
+        .button2 {
+            background-color: #008CBA;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <a href="/employee/employees" class="button button1"
+       style="vertical-align:middle"><span>Click to list all employees</span></a>
+    <br />  <a href="/employee/users" class="button button2" style="vertical-align:middle"><span>Click to list all users</span></a>
+    <br />  <a href="/employee/transactions" class="button button2" style="vertical-align:middle"><span>Click to see all transactions</span></a>
+    <br />  <a href="/employee/customers_details" class="button button2"
+       style="vertical-align:middle"><span>Click to see all customers</span></a>
+    <br />  <a href="/employee/addEmployee" class="button button1"
+       style="vertical-align:middle"><span>Click to add an employee</span></a>
+    <br />  <a href="/employee/addMoneyToCustomer" class="button button2"
+       style="vertical-align:middle"><span>Click to add money to customer</span></a>
+
+<div align="center">
+    <a href="/logout" class="button button1"><span>Logout</span></a>
+</div>
+</body>
+</html>

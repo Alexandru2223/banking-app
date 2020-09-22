@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add transaction</title>
+    <meta charset="UTF-8">
+    <style>
+        .button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button1 {background-color: #4CAF50;
+border-radius: 12px;}
+.button2 {background-color: #008CBA;
+border-radius: 12px;}
+    </style>
+</head>
+<body>
+
+<h1>Transaction</h1>
+
+<form action="#" th:action="@{/user/transaction}" th:object="${transaction}" method="post">
+    <table border="0" cellpadding="10">
+        <tr>
+            <td>Sender IBAN</td>
+            <td>
+                <input type="text" th:field="*{senderIban}" readonly="readonly" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>Consignee IBAN</td>
+            <td>
+                <input type="text" th:field="*{consigneeIban}"  />
+            </td>
+        </tr>
+
+        <tr>
+            <td>Amount (use '.' separator)</td>
+            <td>
+                <input type="text" th:field="*{amount}"  />
+            </td>
+        </tr>
+
+        <tr>
+            <td>Description</td>
+            <td>
+                <input type="text" th:field="*{description}" size="100"  />
+            </td>
+        </tr>
+
+        <tr>
+            <td>Date</td>
+            <td>
+                <input type="text" th:field="*{transactionDate}"  />
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2"> <button class="button button1" style="vertical-align:middle" type="submit"><span>Submit</span></button></td>
+            <td colspan="2"> <button class="button button1" style="vertical-align:middle" type="reset"><span>Reset</span></button></td>
+            <td colspan="2"><button class="button button2" formaction="/user" formmethod="get"><span>Cancel</span></button> </td>
+        </tr>
+    </table>
+    <span th:utext="${successMessage}"></span>
+    <div class="alert alert-success alert-dismissible col-sm-12"
+         th:if="${(bindingResult != null && bindingResult.getAllErrors() != null)}">
+        <ul th:each="data : ${bindingResult.getAllErrors()}">
+            <li th:text="${data.getDefaultMessage()}"></li>
+        </ul>
+    </div>
+</form>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <style>
+        .button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button1 {background-color: #4CAF50;
+border-radius: 12px;}
+.button2 {background-color: #008CBA;
+border-radius: 12px;}
+    </style>
+    <title></title>
+</head>
+<body>
+<div align="center">
+    <h1>Add money</h1>
+    <br />
+    <form action="#" th:action="@{/employee/updateAccount}"  th:object="${account}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>ID: </td>
+                <td>
+                    <input type="text" th:field="*{accountId}" readonly="readonly" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>Enter value to add:</td>
+                <td>
+                    <input type="text" onfocus="this.value=''" id="fee" th:field="*{balance}"  />
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><button class="button button2" type="submit"><span>Save</span></button> </td>
+                <td colspan="2"><button class="button button2" formaction="/employee" formmethod="get"><span>Cancel</span></button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<script type="text/javascript">
+document.getElementById('fee').value = '0';
+</script>
+</body>
+</html>

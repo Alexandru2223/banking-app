@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add employee</title>
+    <meta charset="UTF-8">
+    <style>
+        .button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button1 {background-color: #4CAF50;
+border-radius: 12px;}
+.button2 {background-color: #008CBA;
+border-radius: 12px;}
+    </style>
+</head>
+<body>
+
+<h1>Add Employee</h1>
+
+<form action="#" th:action="@{/employee/addEmployee}" th:object="${employee}" method="post">
+    <table border="0" cellpadding="10">
+        <tr>
+            <td>Employee Name:</td>
+            <td>
+                <input type="text" th:field="*{firstName}" />
+                <input type="text" th:field="*{lastName}" />
+            </td>
+        </tr>
+        <tr>
+            <td>Phone:</td>
+            <td><input type="text" th:field="*{phoneNumber}" /></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="text" th:field="*{email}" /></td>
+        </tr>
+    <tr>
+        <td colspan="2"> <button class="button button1" style="vertical-align:middle" type="submit"><span>Submit</span></button></td>
+        <td colspan="2"> <button class="button button1" style="vertical-align:middle" type="reset"><span>Reset</span></button></td>
+        <td colspan="2"><button class="button button2" formaction="/employee" formmethod="get"><span>Cancel</span></button> </td>
+    </tr>
+    </table>
+</form>
+
+
+
+
+</body>
+</html>

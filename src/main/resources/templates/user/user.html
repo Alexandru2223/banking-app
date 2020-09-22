@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button1 {background-color: #4CAF50;
+border-radius: 12px;}
+.button2 {background-color: #008CBA;
+border-radius: 12px;}
+    </style>
+    <meta charset="UTF-8">
+    <title>User page</title>
+</head>
+<body>
+
+
+<a href="/user/details" class="button button2" style="vertical-align:middle"><span>Click show account details</span></a>
+<br /><a href="/user/transaction" class="button button2" style="vertical-align:middle"><span>Click to make a transaction</span></a>
+<br /><a href="/user/transactions" class="button button1" style="vertical-align:middle"><span>Click to show transactions history</span></a>
+<br /><a href="/logout" class="button button1" style="vertical-align:middle"><span>Logout</span></a>
+</body>
+</html>

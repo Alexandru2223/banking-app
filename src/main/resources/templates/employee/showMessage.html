@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Show message</title>
+    <meta charset="UTF-8">
+    <style>
+        .button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button1 {background-color: #4CAF50;
+border-radius: 12px;}
+.button2 {background-color: #008CBA;
+border-radius: 12px;}
+    </style>
+</head>
+<body>
+
+<h1>Result: </h1>
+
+<h3 th:text="'Last Name: ' + ${employee.lastName}"></h3>
+<h3 th:text="'First Name: ' + ${employee.firstName}"></h3>
+<h3 th:text="'Phone: ' + ${employee.phoneNumber}"></h3>
+<h3 th:text="'Email: ' + ${employee.email}"></h3>
+<h3 th:text="'User Email: ' + ${employee.userEmail}"></h3>
+<h3 th:text="'User Password: ' + ${employee.userPassword}"></h3>
+
+<a href="/employee/addEmployee" class="button button1" style="vertical-align:middle"><span>Add another employee</span></a>
+<a href="/employee" class="button button2" style="vertical-align:middle" ><span>Click to go to main page</span></a>
+
+</body>
+</html>
